@@ -1,24 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
+import Form from './components/Form';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="my-16 mx-32">
+      <img src="./spotify_logo.png" className="logo" alt="logo"></img>
+      <h1 className="text-6xl font-bold">Welcome to Listify!</h1>
+      <h2 className="text-3xl">Download your Spotify playlists and get the song files in highest quality</h2>
+      <Form />
     </div>
   );
 }
