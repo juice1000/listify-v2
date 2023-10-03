@@ -14,7 +14,11 @@ function Form() {
     <div>
       <form className="my-6 w-full flex gap-4" onSubmit={handleSubmit}>
         <input className="p-2 rounded-md w-1/2" placeholder="Paste your playlist link here..." name="playlist" />
-        <input className="bg-black py-2 px-6 rounded-md text-white" type="submit" />
+        <input
+          className="hover:bg-black bg-transparent border-2 border-black py-2 px-6 rounded-full hover:text-white font-bold cursor-pointer"
+          type="submit"
+          value="Start Download"
+        />
       </form>
     </div>
   );
