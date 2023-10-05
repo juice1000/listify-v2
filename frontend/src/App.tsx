@@ -3,12 +3,15 @@ import Form from './components/Form';
 import './App.css';
 
 function App() {
+  function handleFormSubmit(playlistLink: string) {
+    return;
+  }
   return (
     <div className="my-16 mx-32">
       <img src="./spotify_logo.png" className="logo" alt="logo"></img>
       <h1 className="text-6xl font-bold">Welcome to Listify!</h1>
       <h2 className="text-3xl">Download your Spotify playlists and get the song files in highest quality</h2>
-      <Form />
+      <Form onSubmit={handleFormSubmit} />
     </div>
   );
 }
