@@ -2,12 +2,13 @@ import { Tooltip } from 'react-tooltip';
 import { useState } from 'react';
 
 export interface FormProps {
+  downloadBlocked: boolean;
+  onDownloadBlocked: (done: boolean) => void;
   onSubmit: (e: string) => void;
 }
 
 function Form(props: FormProps) {
   const [open, setIsOpen] = useState(false);
-  const [blocked, setIsBlocked] = useState(false); // when we start downloading a playlist we block the button click
   const [debounced, setIsDebounced] = useState(false);
 
   function openAndCloseTooltip() {
@@ -36,7 +37,7 @@ function Form(props: FormProps) {
       if (matchedString) {
         e.target.reset();
         props.onSubmit(matchedString[0]);
-        setIsBlocked(true);
+        props.onDownloadBlocked(true);
       } else {
         openAndCloseTooltip();
       }
@@ -58,7 +59,7 @@ function Form(props: FormProps) {
           className="enabled:hover:bg-black bg-transparent border-2 border-black px-6 rounded-full enabled:hover:text-white font-bold enabled:cursor-pointer disabled:bg-black/40 disabled:border-none"
           type="submit"
           value="Start Download"
-          disabled={blocked}
+          disabled={props.downloadBlocked}
         />
         <Tooltip id="error-tooltip" style={{ backgroundColor: 'red', color: 'white' }} isOpen={open} />
       </form>
