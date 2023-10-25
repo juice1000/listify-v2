@@ -56,11 +56,6 @@ app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
 });
 
-// Express basic get request
-app.get('/', (req: Request, res: Response) => {
-  res.send('Express + TypeScript Server');
-});
-
 // Route Playlist
 app.post('/playlist', async (req: Request, res: Response) => {
   console.log(req.body);

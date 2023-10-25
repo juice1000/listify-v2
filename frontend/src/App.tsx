@@ -11,21 +11,18 @@ function App() {
   }
   function handleFormSubmit(playlistId: string) {
     // trigger HTTP request to backend
-
-    // for now let's use this: https://open.spotify.com/playlist/4PsjSgRRCd7mLdW5M3Bd75?si=fd3ccb5d92644178
     fetch('http://localhost:3000/playlist', {
       method: 'POST',
       mode: 'cors', // no-cors, *cors, same-origin
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
       credentials: 'same-origin', // include, *same-origin, omit
       headers: {
-        //Accept: 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
-        // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
       //body: JSON.stringify({ playlistId: playlistId }),
-      body: JSON.stringify({ playlistId: '4PsjSgRRCd7mLdW5M3Bd75' }),
+      body: JSON.stringify({ playlistId: '4PsjSgRRCd7mLdW5M3Bd75' }), // for debugging purposes
     });
 
     return;
