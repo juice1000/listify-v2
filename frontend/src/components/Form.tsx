@@ -32,11 +32,11 @@ function Form(props: FormProps) {
 
     // match regex pattern of playlist
     if (playlistLink !== '') {
-      const re = new RegExp('https:\\/\\/open\\.spotify\\.com\\/playlist\\/[A-Za-z0-9]{22}\\?si=[A-Za-z0-9]{16}');
+      const re = new RegExp('https:\\/\\/open\\.spotify\\.com\\/playlist\\/([A-Za-z0-9]{22})\\?si=[A-Za-z0-9]{16}');
       const matchedString = playlistLink.match(re);
       if (matchedString) {
         e.target.reset();
-        props.onSubmit(matchedString[0]);
+        props.onSubmit(matchedString[1]);
         props.onDownloadBlocked(true);
       } else {
         openAndCloseTooltip();

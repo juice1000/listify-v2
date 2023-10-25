@@ -9,7 +9,7 @@ let spotifyApi = new SpotifyWebApi({
   redirectUri: process.env.REDIRECT_URI,
 });
 
-async function getPlaylistTracks(): Promise<string[]> {
+async function getPlaylistTracks(playlistId: string): Promise<string[]> {
   if (!spotifyApi['expires_at'] || spotifyApi['expires_at'] < new Date().getTime() / 1000) {
     await setAccessToken(spotifyApi);
   }
@@ -17,7 +17,7 @@ async function getPlaylistTracks(): Promise<string[]> {
   const accessToken = spotifyApi.getAccessToken();
   console.log('The access token is: ' + accessToken);
 
-  const playlist = await spotifyApi.getPlaylist('6akIIIBefkT7JV8sA8G55W');
+  const playlist = await spotifyApi.getPlaylist(playlistId);
 
   if (playlist) {
     const tracks = extractTrackInfo(playlist.body.tracks.items);
